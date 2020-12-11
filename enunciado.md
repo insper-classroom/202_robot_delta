@@ -171,7 +171,7 @@ Para executar o cenário, faça:
 
 Seu robô está num cenário como o que pode ser visto na figura: 
 
-<img src="escuro.jpg" width=75%><img>
+<img src="encaixotado.jpg" width=75%><img>
 
 
 #### O que é para fazer
