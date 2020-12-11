@@ -2,15 +2,12 @@
 
 [Mais orientações no README](./README.md)
 
-## Prova  SUB
+## Prova  DELTA
 
-**Você deve escolher somente 3 questões para fazer.**
+**Você deve fazer quantas questões puder e vai ganhar ponto por todas. A nota desta prova satura no conceito 5**
 
 
 Nome:_______________
-
-
-Questões que fez:____________
 
 
 Observações de avaliações nesta disciplina:
@@ -33,7 +30,7 @@ rucoes_setup.md))
 * Questões de esclarecimento geral podem ser perguntadas no chat do Teams
 * Se você estiver em casa pode fazer pausas e falar com seus familiares, mas não pode receber ajuda na prova.
 * É proibido colaborar ou pedir ajuda a colegas ou qualquer pessoa que conheça os assuntos avaliados nesta prova.
-* Os exercícios admitem diversas estratégias de resolução. A prova de cada aluno é única
+* Para acionar o professor chame-o no chat do Teams. Tempo de resposta estiamado de 10 min
 
 
 Existe algumas dicas de referência rápida de setup [instrucoes_setup.md](instrucoes_setup.md)
@@ -48,14 +45,16 @@ Se você tiver alguma evidência de fraude cometida nesta prova, [use este servi
 # Questões
 
 
-## Questão 1  (3.33 pontos)
+## Questão 1  (2.5 pontos)
 
 Você deve detectar se há uma situação de perigo ou não perigo para as vacas.
 
-Perigo
+**Perigo**
+
 <img src="q1/perigo.jpg" width=50%></img>
 
-Não perigo
+**Não perigo**
+
 <img src="q1/nao_perigo.jpg" width=50%></img>
 
 
@@ -63,14 +62,22 @@ Não perigo
 #### Orientações
 
 É uma situação de perigo quando: 
+
 * Há mais lobos do que vacas
-* As vacas estão contidas na bounding box dos lobos, conforme as figuras
+
+* As vacas estão contidas na *bounding box* de todos os lobos, conforme as figuras
+
+
+Uma *bounding box*, no caso desta questão, será um retângulo que contém todos os sub-retângulos de cada lobo.
 
 Considere que toda detecção `horse` também será de lobos. Se um lobo for detectado como `sheep` não precisa se preocupar.
 
+O seu raciocínio deve seguir a descrição de situação de perigo dada acima. Não pode criar regras muito específicas relacionadas a como o vídeo está.
 
 
 Baixe o vídeo [ cow_wolf.mp4 neste endereço](Baixe o arquivo em https://github.com/Insper/robot20/blob/master/media/cow_wolf.mp4)
+
+<img src="./cow_wolf.gif" width=50%>
 
 
 #### O que você deve fazer:
@@ -78,13 +85,13 @@ Baixe o vídeo [ cow_wolf.mp4 neste endereço](Baixe o arquivo em https://github
 |Resultado| Conceito| 
 |---|---|
 | Não executa | zero |
-| Encontra os lobos e calcula seu bonding box | 1.25|
-| Encontra as vacas e compara com a posição dos lobos com resultados quase corretos  | 2.5|
-| Resultados perfeitos | 3.33|
+| Encontra os lobos e calcula seu bonding box coletivo | 1.0|
+| Encontra as vacas e compara com a posição dos lobos com resultados quase corretos  | 2.0|
+| Resultados perfeitos | 2.5|
 
 Casos intermediários ou omissos da rubrica serão decididos pelo professor.
 
-## Questão 2  (3.33 pontos)
+## Questão 2  (2.5 pontos)
 
 
 #### Orientações
@@ -93,14 +100,19 @@ Trabalhe no arquivo `q2/q2.py`. Este exercício **não precisa** de ROS. Portant
 
 Você vai notar que este programa roda o vídeo `dominoes.mp4`. Baixe o vídeo [neste endereço](https://github.com/Insper/robot20/raw/master/media/dominoes.mp4)
 
-<img src="./q2/domino.jpg" width=35%>
+<img src="./dominoes.gif" width=75%>
 
 
 #### O que você deve fazer:
 
 Um programa que escreve *na tela* o valor da peça de dominó que aparece a cada frame do vídeo. 
 
+
+<img src="q2/domino.jpg" width=25%>
+
 Por exemplo para a peça acima, deve escrever **5 por 3**
+
+Dica: Você pode usar qualquer técnica que dê certo. Mas os **contornos claros grandes** podem ser um começo de como separar a parte de cima da peça da de baixo.
 
 
 |Resultado| Conceito| 
@@ -147,60 +159,53 @@ Ou então se ainda não tiver:
 
 Em seguida faça o [catkin_make](./instrucoes_setup.md). 
 
-
 ## Questão 3
 
 
 
 Para executar o cenário, faça:
 
-    roslaunch my_simulation pista_s.launch
+    roslaunch my_simulation encaixotado.launch 
+
 
 
 Seu robô está num cenário como o que pode ser visto na figura: 
 
-<img src="vai_gato.jpg" width=50%><img>
+<img src="escuro.jpg" width=75%><img>
 
 
 #### O que é para fazer
 
-Faça o robô seguir em frente até parar a $40 cm$ da parede.
-Depois ele deve girar e procurar o gato, centralizando-o na imagem. Se o gato estiver muito grande para ser visto o robô deve se afastar para permitir a visão. 
 
-O programa termina com o robô tendo uma boa visão do gato centralizado na imagem.
+Faça o robô girar até encontrar a caixa **roxa** que tem o ID Aruco 61.
 
+Depois que o robô encontrar e centralizar a visão na caixa mencionada acima, ele precisa começar a se deslocar em direção à caixa
 
-#### Detalhes de como rodar
-
-
-O código para este exercício deve estar em: `sub_202/scripts/Q3.py`
-
-
-
+Deve parar, guiado pelo laser, a uma distância de 70 cm da caixa. 
 
 
 Depois o seu código:
 
-    rosrun sub_202 Q3.py
+    rosrun delta202 Q3.py
 
 
 
 |Resultado| Conceito| 
 |---|---|
 | Não executa | 0 |
-| Vai em frente| 0.2|
-| Para a 40 cm da parede | 1.0|
-| Gira e procura o gato | 2.0 |
-| Faz o necessário para enquadrar bem o gato e para com ele centralizado | 3.33|
+| Robô gira| 0.2|
+| Segmenta caixas roxas e vai além da máscara de pixels | 0.75|
+| Para na caixa roxa | 1.0|
+| Identifica e mostra ids ARUCO | 1.5 |
+| Centraliza na caixa roxa com id 61  | 2.0|
+| Para a $70cm$ da caixa roxa id 61  | 2.5|
 
 
 Casos intermediários ou omissos da rubrica serão decididos pelo professor.
 
+## Questão 4 (2.5 pontos)
 
-
-## Questão 4 (3.33 pontos)
-
-<img src="Q4.jpg" width=50%></img>
+<img src="Q4.jpg" width=75%></img>
 
 Seu robô está no cenário visível abaixo:
 
@@ -211,7 +216,7 @@ Seu robô está no cenário visível abaixo:
 
 #### O que é para fazer
 
-Estime o ponto de fuga da rampa a partir das paredes verdes. Use o ponto de fuga para fazer o robô percorrer a pista corretamente. 
+Estime o ponto de fuga da rampa a partir das paredes verdes ou do chão vermelho. Use o ponto de fuga para fazer o robô percorrer a pista corretamente. 
 
 
 #### Detalhes de como rodar
@@ -225,17 +230,19 @@ Para rodar, recomendamos que faça:
 
 Depois:
 
-    rosrun sub_202 Q4.py
+    rosrun delta202 Q4.py
 
+
+**Dica:** Fizemos uma atividade muito parecida em sala
 
 
 |Resultado| Conceito| 
 |---|---|
 | Não executa | 0 |
-| Segmenta o verde | 0.75 |
-| Encontra as retas das laterais | 1.5 |
-| Acha o ponto de fuga| 2.2|
-| Guia o robo com base no ponto de fuga | 3.33|
+| Segmenta o verde ou o chão vermelho | 0.5 |
+| Encontra as retas das laterais | 1.25 |
+| Acha o ponto de fuga| 1.75|
+| Guia o robo com base no ponto de fuga até o fim da pista| 2.5|
 
 
 Casos intermediários ou omissos da rubrica serão decididos pelo professor.

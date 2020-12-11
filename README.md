@@ -16,6 +16,8 @@ O Blackboard deve ser mantido aberto, junto com Proctorio,  todo o tempo
 [Enunciado da prova, só que no Jupyter para o preview do Github ficar bom](enunciado.ipynb)
 
 
+**Para tirar dúvidas acione diretamente o professor no Chat do Teams. Ele deverá responder em até 10 minutos**
+
 **Para entregar, faça commits e pushes regulares**
 
 **Integridade Intelectual**

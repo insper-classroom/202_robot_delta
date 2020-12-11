@@ -40,7 +40,7 @@ O código deve sempre ser baixado na pasta `cd ~/catkin_make/src` :
 
 Certifique-se de que seus scripts Python são executáveis
 
-    roscd p2_202
+    roscd delta202
     cd scripts
     chmod a+x *py
 
@@ -48,7 +48,7 @@ Certifique-se de que seus scripts Python são executáveis
 
 Para executar arquivos do ROS, faça:
 
-    rosrun p2_202 arquivo.py 
+    rosrun delta202 arquivo.py 
 
 Onde `arquivo.py` é algum script Python executável que você deve ter na pasta `sim202/scripts`.
 

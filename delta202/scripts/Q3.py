@@ -2,7 +2,8 @@
 # -*- coding:utf-8 -*-
 
 # Rodar com
-# roslaunch my_simulation pista_s.launch
+# roslaunch my_simulation encaixotado.launch 
+
 
 from __future__ import print_function, division
 import rospy
